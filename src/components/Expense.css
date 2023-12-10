@@ -1,7 +1,7 @@
 .expense-item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content:space-between;
+    align-items:center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     padding: 0.5rem;
     margin: 1rem 0;
@@ -11,14 +11,12 @@
   
 .expense-item__description {
     display: flex;
-    flex-direction: row;
     gap: 15rem;   
 }
   
 .expense-item h2 {
     color: #3a3a3a;
     font-size: 1rem;
-    flex: 1;
     margin:1rem;
     color: white;
 }
@@ -35,14 +33,12 @@
   
 @media (min-width: 580px) {
     .expense-item__description {
-      flex-direction: row;
       align-items: center;
       justify-content:center;
     }
   
     .expense-item__description h2 {
       font-size: 1.25rem;
-      gap : 15rem;
     }
   
     .expense-item__price {
