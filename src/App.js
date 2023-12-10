@@ -2,7 +2,6 @@ import './App.css';
 import Expenses from './components/expense';
 
 function App() {
-
   const expenses = [
     {
       item: 'Groceries',
@@ -39,13 +38,17 @@ function App() {
   return (
     <div>
       <h2>Expense Items</h2>
-      <Expenses title={expenses[0].item} amount={expenses[0].cost} place={expenses[0].place} date={expenses[0].date}></Expenses>
-      <Expenses title={expenses[1].item} amount={expenses[1].cost} place={expenses[1].place} date={expenses[1].date}></Expenses>
-      <Expenses title={expenses[2].item} amount={expenses[2].cost} place={expenses[2].place} date={expenses[2].date}></Expenses>
-      <Expenses title={expenses[3].item} amount={expenses[3].cost} place={expenses[3].place} date={expenses[3].date}></Expenses>
-      <Expenses title={expenses[4].item} amount={expenses[4].cost} place={expenses[4].place} date={expenses[4].date}></Expenses>
+      {expenses.map((expense, index) => (
+        <Expenses
+          title={expense.item}
+          amount={expense.cost}
+          place={expense.place}
+          date={expense.date}
+        />
+      ))}
     </div>
   );
 }
+
 
 export default App;
