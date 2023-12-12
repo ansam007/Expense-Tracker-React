@@ -1,4 +1,4 @@
-import "./Expense.css";
+import "../App/App.css";
 import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
 

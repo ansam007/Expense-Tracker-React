@@ -1,4 +1,4 @@
-import "./Expense.css";
+import "../App/Expense.css";
 
 function ExpenseDetails(props) {
   return (
