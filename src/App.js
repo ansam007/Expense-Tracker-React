@@ -38,9 +38,10 @@ function App() {
 
   return (
     <div>
-      <h2>Expense Items</h2>
+      <h2>Expense Item Details</h2>
       {expenses.map((expense, index) => (
         <Expenses
+          id={index}
           title={expense.item}
           amount={expense.cost}
           place={expense.place}
