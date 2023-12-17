@@ -1,14 +1,25 @@
 import "../App/Expense.css";
+import {useState} from "react";
+
 
 function ExpenseDetails(props) {
+
+  const [amount, setAmount] = useState(props.amount);
+
+  var changeExpense = () => {
+    setAmount(10000);
+    console.log('button clicked');
+  }
+
   return (
-    <span className="expense-item__description">
+    <div className="expense-item__description">
       <div>
         <h2>{props.title}</h2>
       </div>
       <div className="expense-item__location">{props.place}</div>
-      <div className="expense-item__price">Rs.{props.amount} </div>
-    </span>
+      <div className="expense-item__price">Rs.{amount} </div>
+      <button onClick={changeExpense}>Change Expense</button>
+    </div>
   );
 }
 

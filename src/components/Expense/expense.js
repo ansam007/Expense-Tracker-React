@@ -3,13 +3,10 @@ import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
 
 function Expenses(props) {
-  const sanitizedId = `item-${props.id}`;
+  const Id = `item-${props.id}`;
 
   const handleDeleteClick = () => {
-    const elementToDelete = document.querySelector(`.${sanitizedId}`).parentNode;
-    if (elementToDelete) {
-      elementToDelete.remove();
-    }
+    const elementToDelete = document.querySelector(`.${Id}`).parentNode.remove();
   };
 
   return (
@@ -18,15 +15,9 @@ function Expenses(props) {
       <ExpenseDetails
         title={props.title}
         amount={props.amount}
-        place={props.place}
-      ></ExpenseDetails>
-      <button
-        style={{ marginLeft: "1rem" }}
-        className={sanitizedId}
-        onClick={handleDeleteClick}
-      >
-        Delete
-      </button>
+        place={props.place}>
+      </ExpenseDetails>
+      <button style={{ marginLeft: "1rem" }} className={Id} onClick={handleDeleteClick}> Delete </button>
     </div>
   );
 }
