@@ -1,6 +1,6 @@
 import './components/App/App.css';
 import Expenses from './components/Expense/expense.js';
-
+import UserExpense from './components/userData/js/UserExpense.js'
 function App() {
   
   const expenses = [
@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div>
-      <h2>Expense Item Details</h2>
+      <UserExpense></UserExpense>
       {expenses.map((expense, index) => (
         <Expenses
           id={index}
