@@ -8,7 +8,6 @@ function ExpenseDetails(props) {
 
   var changeExpense = () => {
     setAmount(10000);
-    console.log('button clicked');
   }
 
   return (

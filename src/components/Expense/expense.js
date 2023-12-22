@@ -3,6 +3,7 @@ import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
 
 function Expenses(props) {
+  
   const Id = `item-${props.id}`;
 
   const handleDeleteClick = () => {

@@ -1,10 +1,11 @@
 import './components/App/App.css';
 import Expenses from './components/Expense/expense.js';
 import UserData from './components/userData/js/UserExpense.js'
+import { useState} from 'react';
 
 function App() {
   
-  const expenses = [
+  const [expenses, setExpenses] = useState([
     {
       item: 'Groceries',
       cost: 50.00,
@@ -35,13 +36,21 @@ function App() {
       place: 'Fashion Store',
       date: new Date(2023,5,2),
     }
-  ];
+  ]);
+
+  const addExpenseHandler = (data) => {
+    setExpenses((prevExpenses)=>[
+      ...prevExpenses, data
+    ])
+    console.log(data);
+  }
 
   return (
     <div>
-      <UserData></UserData>
+      <UserData addExpense={addExpenseHandler}></UserData>
       {expenses.map((expense, index) => (
         <Expenses
+          key = {index}
           id={index}
           title={expense.item}
           amount={expense.cost}
