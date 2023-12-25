@@ -11,7 +11,7 @@ function App() {
       item: 'Groceries',
       cost: 50.00,
       place: 'Local Supermarket',
-      date: new Date(2022,1,5),
+      date: new Date(2021,1,5),
     },
     {
       item: 'Dinner',
@@ -23,13 +23,13 @@ function App() {
       item: 'Gasoline',
       cost: 40.00,
       place: 'Gas Station ABC',
-      date: new Date(2022,3,20),
+      date: new Date(2021,3,20),
     },
     {
       item: 'Movie Tickets',
       cost: 25.00,
       place: 'Cinema City',
-      date: new Date(2019,4,15),
+      date: new Date(2021,4,15),
     },
     {
       item: 'Clothing',
@@ -45,9 +45,9 @@ function App() {
     ])
   }
 
-  const [filteredYear, setFilteredYear] = useState('2020');
+  const [filteredYear, setFilteredYear] = useState('2021');
 
-  const filterChangeHandler = selectedYear => {      
+  const filterChangeHandler = (selectedYear) => {      
     setFilteredYear(selectedYear);
   }
 
