@@ -1,7 +1,6 @@
 import "../App/Expense.css";
 import {useState} from "react";
 
-
 function ExpenseDetails(props) {
 
   const [amount, setAmount] = useState(props.amount);
