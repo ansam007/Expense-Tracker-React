@@ -1,8 +1,8 @@
 import "./components/App/App.css";
-import Expenses from "./components/Expense/expense.js";
 import UserData from "./components/userData/js/UserExpense.js";
 import { useState } from "react";
 import ExpenseFilter from "./components/Expense/ExpenseFilter.js";
+import ExpenseContent from "./components/Expense/ExpenseList.js";
 
 function App() {
   const [expenses, setExpenses] = useState([
@@ -58,37 +58,6 @@ function App() {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  let expenseContent = <p>No Expenses Found</p>;
-
-  if (filteredExpenses.length > 1) {
-    expenseContent = filteredExpenses.map((expense, index) => (
-      <Expenses
-        key={index}
-        id={index}
-        title={expense.item}
-        amount={expense.cost}
-        place={expense.place}
-        date={expense.date}
-      />
-    ));
-  }else if (filteredExpenses.length === 1) {
-    expenseContent = (
-      <div>
-        {filteredExpenses.map((expense, index) => (
-          <Expenses
-            key={index}
-            id={index}
-            title={expense.item}
-            amount={expense.cost}
-            place={expense.place}
-            date={expense.date}
-          />
-        ))}
-        <p>Only single Expense here. Please add more...</p>
-      </div>
-    );
-  }
-
   return (
     <div>
       <UserData addExpense={addExpenseHandler}></UserData>
@@ -96,7 +65,7 @@ function App() {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       ></ExpenseFilter>
-      {expenseContent}
+      <ExpenseContent items={filteredExpenses}></ExpenseContent>
     </div>
   );
 }
