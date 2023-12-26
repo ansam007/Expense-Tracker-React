@@ -45,9 +45,7 @@ function App() {
   // };
 
   const addExpenseHandler = (data) => {
-    setExpenses((prevExpenses) => [
-      ...prevExpenses, data
-    ]);
+    setExpenses((prevExpenses) => [...prevExpenses, data]);
   };
 
   const [filteredYear, setFilteredYear] = useState("2021");
@@ -60,6 +58,37 @@ function App() {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
+  let expenseContent = <p>No Expenses Found</p>;
+
+  if (filteredExpenses.length > 1) {
+    expenseContent = filteredExpenses.map((expense, index) => (
+      <Expenses
+        key={index}
+        id={index}
+        title={expense.item}
+        amount={expense.cost}
+        place={expense.place}
+        date={expense.date}
+      />
+    ));
+  }else if (filteredExpenses.length === 1) {
+    expenseContent = (
+      <div>
+        {filteredExpenses.map((expense, index) => (
+          <Expenses
+            key={index}
+            id={index}
+            title={expense.item}
+            amount={expense.cost}
+            place={expense.place}
+            date={expense.date}
+          />
+        ))}
+        <p>Only single Expense here. Please add more...</p>
+      </div>
+    );
+  }
+
   return (
     <div>
       <UserData addExpense={addExpenseHandler}></UserData>
@@ -67,16 +96,7 @@ function App() {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       ></ExpenseFilter>
-      {filteredExpenses.length === 0 ? (<p>No expenditure happen</p>) : (filteredExpenses.map((expense, index) => (
-        <Expenses
-          key={index}
-          id={index}
-          title={expense.item}
-          amount={expense.cost}
-          place={expense.place}
-          date={expense.date}
-        />
-      )))}
+      {expenseContent}
     </div>
   );
 }
