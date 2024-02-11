@@ -10,8 +10,8 @@ function Expenses(props) {
     document.querySelector(`.${Id}`).parentNode.remove();
   };
 
-  return (
-      <div className="expense-item">
+  return ( 
+    <div className="expense-item">
       <ExpenseDate date={props.date}></ExpenseDate>
       <ExpenseDetails
         title={props.title}

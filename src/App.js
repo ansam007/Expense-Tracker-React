@@ -3,8 +3,12 @@ import UserData from "./components/userData/js/UserExpense.js";
 import { useState } from "react";
 import ExpenseFilter from "./components/Expense/ExpenseFilter.js";
 import ExpenseContent from "./components/Expense/ExpenseList.js";
+import ExpensesChart from "./components/Expense/ExpensesChart.js";
 
 function App() {
+
+  const [filteredYear, setFilteredYear] = useState("2021");
+
   const [expenses, setExpenses] = useState([
     {
       item: "Groceries",
@@ -48,7 +52,6 @@ function App() {
     setExpenses((prevExpenses) => [...prevExpenses, data]);
   };
 
-  const [filteredYear, setFilteredYear] = useState("2021");
 
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
@@ -65,6 +68,7 @@ function App() {
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       ></ExpenseFilter>
+      <ExpensesChart expenses={filteredExpenses}></ExpensesChart>
       <ExpenseContent items={filteredExpenses}></ExpenseContent>
     </div>
   );
